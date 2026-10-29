@@ -70,12 +70,19 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
 
+" Navigate completion suggestions with Alt+j / Alt+k
+" inoremap <silent><expr> <M-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
+" inoremap <silent><expr> <M-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
 
+" Confirm completion with Enter; otherwise insert a newline
+" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#select_confirm() : "\<CR>"
 
+" Trigger completion manually
+inoremap <silent><expr> <M-/> coc#refresh()
 
 
 call plug#begin()
 
-    Plug 'valloric/youcompleteme'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()

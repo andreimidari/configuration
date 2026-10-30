@@ -1,14 +1,40 @@
-syntax on 
+set nocompatible
 set encoding=utf-8
+set history=100
+set autoread
 
-set copyindent
-set autoindent
-
+syntax on 
 filetype on 
 filetype plugin on 
 filetype indent on 
 
-set nocompatible
+set autoindent
+set copyindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set backspace=indent,eol,start
+
+set number
+set relativenumber
+set ruler
+set showcmd
+set showmode
+set showmatch
+set scrolloff=10
+set nowrap
+
+set termguicolors
+colorscheme industry
+
+set incsearch
+set nohlsearch
+set ignorecase
+set smartcase
+
+set wildmenu 
+set wildmode=list:longest
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 " set pastetoggle=<M-c>
 nnoremap <M-c> : call TogglePasteMode()<CR>
@@ -23,52 +49,18 @@ function! TogglePasteMode()
 	endif		
 endfunction
 
-set number
-set relativenumber
-colorscheme industry
-
-set shiftwidth=4
-set tabstop=4
-set expandtab
-
-set scrolloff=10
-
-set backspace=indent,eol,start
-
-set nowrap
-
-set nohlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-set ruler
-set showcmd
-set showmode
-set showmatch
-
-set history=100
-
-set termguicolors
-
-set wildmenu 
-set wildmode=list:longest
-set wildoptions=
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-
+set laststatus=2
 set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
+set statusline+=\ 
+set statusline+=%f
+set statusline+=\ %m
 set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
+set statusline+=%y
+set statusline+=\ [%{&fileencoding==#''?&encoding:&fileencoding}]
+set statusline+=\ [%{&fileformat}]
 set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\
+set statusline+=\ %l:%c 
+set statusline+=\ 
 
 " Navigate completion suggestions with Alt+j / Alt+k
 " inoremap <silent><expr> <M-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
